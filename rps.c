@@ -7,18 +7,20 @@
 // Function to implement the game
 int game(char you, char computer)
 {
-    if (you == computer)
-        return -1;
-    else if (you == 'r')
+    if (you == computer) return -1;
+    else if (you == 'r') {
         if (computer == 'p') return 0;
         else return 1;
-    else if (you == 'p')
+    }
+    else if (you == 'p') {
         if (computer == 's') return 0;
         else return 1;
-    else if (you == 's')
+    }
+    else if (you == 's') {
         if (computer == 'r') return 0;
         else return 1;
-
+    }
+    else return -1; // ...anything else
 }
 
 // Driver Code
