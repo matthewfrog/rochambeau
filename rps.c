@@ -9,35 +9,16 @@ int game(char you, char computer)
 {
     if (you == computer)
         return -1;
+    else if (you == 'r')
+        if (computer == 'p') return 0;
+        else return 1;
+    else if (you == 'p')
+        if (computer == 's') return 0;
+        else return 1;
+    else if (you == 's')
+        if (computer == 'r') return 0;
+        else return 1;
 
-        // If user's choice is stone and
-    // computer's choice is paper
-    if (you == 's' && computer == 'p')
-        return 0;
-
-            // If user's choice is paper and
-            // computer's choice is stone
-            else if (you == 'p' && computer == 's') return 1;
-
-    // If user's choice is stone and
-    // computer's choice is scissor
-    if (you == 's' && computer == 'z')
-        return 1;
-
-    // If user's choice is scissor and
-    // computer's choice is stone
-    else if (you == 'z' && computer == 's')
-        return 0;
-
-    // If user's choice is paper and
-    // computer's choice is scissor
-    if (you == 'p' && computer == 'z')
-        return 0;
-
-    // If user's choice is scissor and
-    // computer's choice is paper
-    else if (you == 'z' && computer == 'p')
-        return 1;
 }
 
 // Driver Code
@@ -69,11 +50,11 @@ int main()
         // p is denoting Paper
         computer = 'p';
 
-    // z is denoting Scissor
+    // r is denoting Rock
     else
-        computer = 'z';
+        computer = 'r';
 
-    printf("\n\n\n\n\t\t\t\tEnter s for STONE, p for PAPER and z for SCISSOR\n\t\t\t\t\t\t\t");
+    printf("\n\n\n\n\t\t\t\tEnter r for ROCK, p for PAPER and s for SCISSORS\n\t\t\t\t\t\t\t");
 
     // input from the user
     scanf("%c", &you);
@@ -90,7 +71,7 @@ int main()
     else { 
         printf("\n\n\t\t\t\tOh! You have lost the game!\n");
     }
-        printf("\t\t\t\tYOu choose : %c and Computer choose : %c\n",you, computer);
+        printf("\t\t\t\tYou choose : %c and Computer choose : %c\n",you, computer);
 
     return 0;
 }
