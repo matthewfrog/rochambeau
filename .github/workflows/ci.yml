@@ -1,0 +1,23 @@
+name: Build and Test
+
+on:
+  push:
+    branches: [main, first-fix]
+  pull_request:
+    branches: [main, first-fix]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build
+        run: gcc -o rps rps.c -lm
+
+      - name: Test - run with input
+        run: |
+          # Verify the binary runs and exits successfully
+          echo "r" | ./rps
+          test $? -eq 0 || exit 1
